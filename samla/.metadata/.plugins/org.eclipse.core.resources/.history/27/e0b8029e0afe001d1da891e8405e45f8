@@ -1,0 +1,5 @@
+package com.samla.service;
+
+public interface GeneralService {
+
+}

@@ -1,0 +1,44 @@
+package com.samla.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.samla.model.AnswerDTO;
+import com.samla.model.QuestionDTO;
+import com.samla.model.Task;
+import com.samla.model.ValidateResponse;
+import com.samla.service.GeneralService;
+
+@RestController
+public class HelperController {
+	@Autowired
+	GeneralService gs;
+	
+	@GetMapping("/random")
+	public ResponseEntity<List<Task>> random(){
+		return new ResponseEntity<List<Task>>(gs.random(),HttpStatus.OK);
+	}
+	
+	@PostMapping("/register")
+	public ResponseEntity<Task> save(@RequestBody Task task){
+		return new ResponseEntity<Task>(gs.save(task),HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/play")
+	public ResponseEntity<QuestionDTO> play(){
+		return new ResponseEntity<QuestionDTO>(gs.getRandom(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/next")
+	public ResponseEntity<ValidateResponse> next(@RequestBody AnswerDTO answerdto){
+		return new ResponseEntity<ValidateResponse>(gs.validate(answerdto),HttpStatus.OK);
+	}
+	
+}

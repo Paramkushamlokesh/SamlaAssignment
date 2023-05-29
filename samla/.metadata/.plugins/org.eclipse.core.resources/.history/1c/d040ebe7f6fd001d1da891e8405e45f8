@@ -1,0 +1,24 @@
+package com.samla.model;
+
+import java.security.Timestamp;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+import lombok.Data;
+@Entity
+@Data
+public class Task {
+	Integer id;
+    String answer;
+    String  question;
+    Integer  value;
+    Timestamp airdate;        //": "2012-01-02T20:00:00.000Z",
+    Timestamp created_at;     //": "2022-12-30T20:36:22.537Z",
+    Timestamp updated_at;     //": "2022-12-30T20:36:22.537Z",
+    Integer category_id;
+    Integer game_id;
+    Integer invalid_count;
+    @OneToOne
+    Category category;
+    
+}

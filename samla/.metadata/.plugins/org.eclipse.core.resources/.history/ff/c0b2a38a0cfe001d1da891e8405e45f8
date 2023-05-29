@@ -1,0 +1,17 @@
+package com.samla.model;
+
+import java.sql.Timestamp;
+
+import lombok.Data;
+@Data
+public class ExceptionResponse {
+	String msg;
+	Timestamp timestamp;
+	String path;
+	public ExceptionResponse(String msg, String path) {
+		this.msg = msg;
+		this.timestamp = getTimestamp();
+		this.path = path;
+	}
+	
+}

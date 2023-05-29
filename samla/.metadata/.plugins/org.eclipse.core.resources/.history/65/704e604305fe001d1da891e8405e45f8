@@ -1,0 +1,9 @@
+package com.samla.model;
+
+public class ValidateResponse {
+	
+	
+	String correct_answer;
+	QuestionDTO question_dto;
+
+}

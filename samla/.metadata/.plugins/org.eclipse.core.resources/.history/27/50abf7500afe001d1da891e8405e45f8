@@ -1,0 +1,22 @@
+package com.samla.model;
+
+
+
+import java.sql.Timestamp;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "categories")
+@Data
+public class Category {
+	@Id
+	Integer id;
+    String title;
+    Timestamp created_at;    //": "2022-12-30T18:48:49.902Z",
+    Timestamp updated_at;    //": "2022-12-30T18:48:49.902Z",
+    Integer clues_count;
+}

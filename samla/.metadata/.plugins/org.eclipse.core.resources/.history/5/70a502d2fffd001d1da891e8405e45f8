@@ -1,0 +1,25 @@
+package com.samla.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.samla.model.Task;
+import com.samla.repository.TaskRepo;
+
+@Service
+public class GeneralService {
+	@Autowired
+	RestTemplate resttemplate;
+	@Autowired
+	TaskRepo tr;
+	
+	public Task random(){
+		Task task=resttemplate.getForObject("https://jservice.io/api/random",Task.class);
+		return task;
+	}
+	
+	public Task save(Task task) {
+		return tr.save(task);
+	}
+}

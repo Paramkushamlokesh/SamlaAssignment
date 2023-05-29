@@ -1,0 +1,5 @@
+package com.samla.exception;
+
+public class GlobalHandler {
+
+}

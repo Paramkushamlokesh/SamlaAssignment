@@ -1,0 +1,13 @@
+package com.samla;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SamlaAssignmentApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SamlaAssignmentApplication.class, args);
+	}
+
+}

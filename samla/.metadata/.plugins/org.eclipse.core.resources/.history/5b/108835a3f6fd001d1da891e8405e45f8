@@ -1,0 +1,11 @@
+package com.samla.model;
+
+import java.security.Timestamp;
+
+public class Category {
+	Integer id;
+    String title;
+    Timestamp created_at;    //": "2022-12-30T18:48:49.902Z",
+    Timestamp updated_at;    //": "2022-12-30T18:48:49.902Z",
+    Integer clues_count;
+}

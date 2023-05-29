@@ -1,0 +1,26 @@
+package com.samla.exception;
+
+import java.net.http.HttpRequest;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+
+import com.samla.model.ExceptionResponse;
+
+@ControllerAdvice
+public class GlobalHandler {
+	
+	
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<ExceptionResponse> handler(RuntimeException re,WebRequest q){
+		return new ResponseEntity<ExceptionResponse>(new ExceptionResponse(re.getMessage(),q.getDescription(false)),HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ExceptionResponse> exhandler(RuntimeException re,WebRequest q){
+		return new ResponseEntity<ExceptionResponse>(new ExceptionResponse(re.getMessage(),q.getDescription(false)),HttpStatus.BAD_REQUEST);
+	}
+}
